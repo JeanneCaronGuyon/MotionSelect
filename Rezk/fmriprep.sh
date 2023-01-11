@@ -20,6 +20,7 @@ module purge
 #export MKL_NUM_THREADS=9
 
 subjID=$1
+TaskName=$2
 
 singularity run --cleanenv \
     -B ../inputs/raw:/bids_dir \ # where the inputs are to : temporary bids_dir directory
@@ -33,4 +34,4 @@ singularity run --cleanenv \
     --fs-license-file /freesurfer_license/license.txt \
     --output-spaces MNI152NLin2009cAsym T1w \
     --notrack --stop-on-first-crash \
-    --task visMotion # task to be preprocessed 
+    --task ${TaskName} # task to be preprocessed 
