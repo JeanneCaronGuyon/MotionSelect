@@ -1,6 +1,6 @@
 #!/bin/bash
 # Submission script for Lemaitre3
-#SBATCH --job-name=fmriprep_trial
+#SBATCH --job-name=fMRIprep
 #SBATCH --time=42:00:00 # hh:mm:ss
 #
 #SBATCH --ntasks=1
@@ -8,7 +8,7 @@
 #SBATCH --mem-per-cpu=10000 # megabytes
 #SBATCH --partition=batch,debug
 #
-#SBATCH --mail-user=name.surname@uclouvain.be
+#SBATCH --mail-user=jeanne.caron-guyon@uclouvain.be
 #SBATCH --mail-type=ALL
 #sbatch --output=fmriprep_job-%j.txt
 #
