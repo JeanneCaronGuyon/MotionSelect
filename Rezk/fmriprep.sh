@@ -26,7 +26,7 @@ singularity run --cleanenv \
     -B ../tmp:/tmp \ # temporary directory in which analysis is ran (useful when crashs happen to retrieve analysis in process)
     -B ../outputs:/output \ # where the outputs are to : temporary output directory
     -B ~/freesurfer_license:/freesurfer_license \  # where the freesurfer license is 
-    ~/sing_temp/containers/images/bids/bids-fmriprep--21.0.1.sing \
+    ~/singularity_images/containers/images/bids/bids-fmriprep--21.0.1.sing \
     /bids_dir /output \
     participant --participant-label ${subjID} \
     --work-dir /tmp \
