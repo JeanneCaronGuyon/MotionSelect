@@ -43,7 +43,7 @@ TaskName=$2
 
 FMRIPREP_VERSION="21.0.1"
 
-if [ ! ${LOCAL} ]; then
+if [ ${LOCAL} == false ]; then
     module purge
     path_to_singularity_image="$HOME/singularity_images/containers/images/bids/bids-fmriprep--${FMRIPREP_VERSION}.sing"
     bids_dir="../inputs/raw"
@@ -53,7 +53,7 @@ if [ ! ${LOCAL} ]; then
 fi
 
 # change values below to test locally
-if [ ${LOCAL} ]; then
+if [ ${LOCAL} == true ]; then
     : Running locally
     path_to_singularity_image="$HOME/my_images/bids-fmriprep--${FMRIPREP_VERSION}.sing"
     bids_dir="$HOME/github/bidspm/demos/MoAE/inputs/raw"
