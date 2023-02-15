@@ -19,7 +19,7 @@
 set -e -x -u -o pipefail
 
 # set to true to run locally
-LOCAL=true
+LOCAL=false
 
 #SBATCH --job-name=fMRIprep
 #SBATCH --time=12:00:00 # hh:mm:ss
