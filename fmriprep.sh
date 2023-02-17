@@ -1,5 +1,22 @@
 #!/bin/bash
 
+#SBATCH --job-name=fMRIprep
+#SBATCH --time=12:00:00 # hh:mm:ss
+
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=9
+#SBATCH --mem-per-cpu=10000 # megabytes
+#SBATCH --partition=batch,debug
+
+#SBATCH --mail-user=jeanne.caron-guyon@uclouvain.be
+#SBATCH --mail-type=ALL
+#sbatch --output=fmriprep_job-%j.txt
+
+#SBATCH --comment=cpp_cluster_hackaton
+
+#export OMP_NUM_THREADS=9
+#export MKL_NUM_THREADS=9
+
 # Submission script for Lemaitre3
 # 
 # USAGE on cluster:
@@ -20,23 +37,6 @@ set -e -x -u -o pipefail
 
 # set to true to run locally
 LOCAL=false
-
-#SBATCH --job-name=fMRIprep
-#SBATCH --time=12:00:00 # hh:mm:ss
-
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=9
-#SBATCH --mem-per-cpu=10000 # megabytes
-#SBATCH --partition=batch,debug
-
-#SBATCH --mail-user=jeanne.caron-guyon@uclouvain.be
-#SBATCH --mail-type=ALL
-#sbatch --output=fmriprep_job-%j.txt
-
-#SBATCH --comment=cpp_cluster_hackaton
-
-#export OMP_NUM_THREADS=9
-#export MKL_NUM_THREADS=9
 
 subjID=$1
 TaskName=$2
