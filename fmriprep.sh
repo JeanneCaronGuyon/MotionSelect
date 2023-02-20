@@ -67,9 +67,9 @@ mkdir -p "${tmp_dir}"
 mkdir -p "${output_dir}"
 
 singularity run --cleanenv \
-    -B ${bids_dir}:/bids_dir \
-    -B ${tmp_dir}:/tmp \
-    -B ${output_dir}:/output \
+    -B "${bids_dir}":/bids_dir \
+    -B "${tmp_dir}":/tmp \
+    -B "${output_dir}":/output \
     -B "${freesurfer_license_folder}":/freesurfer_license \
         "${path_to_singularity_image}" \
             /bids_dir \
