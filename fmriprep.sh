@@ -81,4 +81,5 @@ singularity run --cleanenv \
             --fs-license-file /freesurfer_license/license.txt \
             --output-spaces MNI152NLin2009cAsym T1w \
             --notrack \
+            --skip_bids_validation 
             --stop-on-first-crash
