@@ -41,7 +41,7 @@ LOCAL=false
 subjID=$1
 TaskName=$2
 
-FMRIPREP_VERSION="21.0.1"
+FMRIPREP_VERSION="22.0.2"
 
 if [ ${LOCAL} == false ]; then
     module purge
