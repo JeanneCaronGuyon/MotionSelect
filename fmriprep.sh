@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=fMRIprep
-#SBATCH --time=12:00:00 # hh:mm:ss
+#SBATCH --time=07:00:00 # hh:mm:ss
 
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=9
