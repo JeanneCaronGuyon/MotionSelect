@@ -76,7 +76,6 @@ singularity run --cleanenv \
             /output \
             participant \
             --participant-label "${subjID}" \
-            --s ses-mri \
             --task "${TaskName}" \
             --work-dir /tmp \
             --fs-license-file /freesurfer_license/license.txt \
