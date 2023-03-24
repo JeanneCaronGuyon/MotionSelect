@@ -21,11 +21,11 @@
 # 
 # USAGE on cluster:
 #
-#   sbatch fmriprep.sh <subjID> <TaskName>
+#   sbatch fmriprep_Breuer.sh.sh <subjID> <TaskName>
 # 
 # USAGE locally:
 #
-#   bash fmriprep.sh <subjID> <TaskName>
+#   bash fmriprep_Breuer.sh.sh <subjID> <TaskName>
 #
 
 # fail whenever something is fishy
