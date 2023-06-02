@@ -1,0 +1,106 @@
+{
+  "Name": "audMotion for Rezk dataset",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "default BIDS stats model for audMotion task for Rezk dataset",
+  "Input": {
+    "task": ["audMotion"],
+    "space": ["MNI152NLin2009cAsym"]
+  },
+  "Nodes": [
+    {
+      "Level": "Run",
+      "Name": "run",
+      "GroupBy": [
+        "run",
+        "session",
+        "subject"
+      ],
+      "Model": {
+        "X": [
+          "trial_type.motion",
+          "trial_type.static",
+          "trial_type.response",
+          "1",
+          "trans_?",
+          "rot_?",
+          "a_comp_cor_??", 
+          "global_signal"
+        ],
+        "Type": "glm",
+        "HRF": {
+          "Variables": [
+            "trial_type.motion",
+            "trial_type.static",
+            "trial_type.response"
+          ],
+          "Model": "spm"
+        },
+        "Options": {
+          "HighPassFilterCutoffHz": 0.008,
+          "Mask": {
+            "desc": ["brain"],
+            "suffix": ["mask"]
+          }
+        },
+        "Software": {
+          "SPM": {
+            "SerialCorrelation": "FAST",
+            "InclusiveMaskingThreshold": 0.8
+          }
+        }
+      },
+      "Contrasts": [
+        {
+          "Name": "audMotion-audStatic",
+          "ConditionList": ["trial_type.motion", "trial_type.static"],
+          "Weights": [1, -1],
+          "Test": "t"
+        }
+      ],
+      "DummyContrasts": {
+        "Test": "t",
+        "Contrasts": [
+          "trial_type.motion",
+          "trial_type.static"
+        ]
+      }
+    },
+    {
+      "Level": "Subject",
+      "Name": "subject",
+      "GroupBy": [
+        "subject",
+        "contrast"
+      ],
+      "Model": {
+        "X": [1],
+        "Type": "glm"
+      },
+      "DummyContrasts": {
+        "Test": "t"
+      }
+    },
+    {
+      "Level": "Dataset",
+      "Name": "dataset",
+      "GroupBy": ["contrast"],
+      "Model": {
+        "X": [1],
+        "Type": "glm"
+      },
+      "DummyContrasts": {
+        "Test": "t"
+      }
+    }
+  ],
+  "Edges": [
+    {
+      "Source": "run",
+      "Destination": "subject"
+    },
+    {
+      "Source": "subject",
+      "Destination": "dataset"
+    }
+  ]
+}
